@@ -1,0 +1,112 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages><package name="GravityWorks-AdaptiveImages" type="Module" version="1.0.0">
+  <friendlyName>GravityWorks-AdaptiveImages</friendlyName>
+    <description>Gravity Works Adaptive Images description</description>
+    <iconFile>images/host-image-32px.gif</iconFile>
+  <owner>
+    <name>Jeff McWherter</name>
+    <organization>Gravity Works</organization>
+    <url>http://www.gravityworksdesign.com</url>
+    <email>Jeff@gravityworksdesign.com</email>
+  </owner>
+  <license>Gravity Works Adaptive Image License</license>
+  <releaseNotes />
+  <components>
+    <component type="Module">
+      <desktopModule>
+        <moduleName>GravityWorks-AdaptiveImages</moduleName>
+        <foldername>GravityWorks-AdaptiveImages</foldername>
+        <businessControllerClass>GravityWorks.AdaptiveImages.AdaptiveImageController</businessControllerClass>
+        <supportedFeatures>
+          <supportedFeature type="Upgradeable" />
+        </supportedFeatures>
+        <moduleDefinitions>
+          <moduleDefinition>
+            <friendlyName>GravityWorks-AdaptiveImages</friendlyName>
+            <defaultCacheTime>0</defaultCacheTime>
+            <moduleControls>
+              <moduleControl>
+                <controlKey />
+                <controlSrc>DesktopModules/GravityWorks-AdaptiveImages/Default.ascx</controlSrc>
+                <supportsPartialRendering>False</supportsPartialRendering>
+                <controlTitle />
+                <controlType>View</controlType>
+                <iconFile />
+                <helpUrl />
+                <supportsPopUps>False</supportsPopUps>
+                <viewOrder>0</viewOrder>
+              </moduleControl>
+            </moduleControls>
+          </moduleDefinition>
+        </moduleDefinitions>
+      </desktopModule>
+      <eventMessage>
+        <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+        <processorCommand>UpgradeModule</processorCommand>
+        <attributes>
+          <businessControllerClass>GravityWorks.AdaptiveImages.AdaptiveImageController</businessControllerClass>
+          <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+          <upgradeVersionsList>01.00.00,01.00.01</upgradeVersionsList>
+        </attributes>
+      </eventMessage>
+    </component>
+    <component type="Assembly">
+      <assemblies>
+        <basePath>bin</basePath>
+        <assembly>
+          <name>GravityWorks.AdaptiveImages.dll</name>
+        </assembly>
+        <assembly>
+          <name>AdaptiveImages.dll</name>
+        </assembly>
+      </assemblies>
+    </component>
+    
+    <component type="File">
+      <files>
+        <basePath>DesktopModules\GravityWorks-AdaptiveImages</basePath>
+        <file>
+          <name>Default.ascx</name>
+        </file>
+      </files>
+    </component>
+
+    <component type="Config">
+      <config>
+        <configFile>web.config</configFile>
+        <install>
+          <configuration>
+            <nodes>
+              <node path="/configuration/system.webServer/handlers" action="update" key="name" collision="overwrite">
+                <add name="AdaptiveImageHandlerGif" path="*.gif" verb="GET" type="AdaptiveImages.AdaptiveImageHandler"  />
+                <add name="AdaptiveImageHandlerJpg" path="*.jpg" verb="GET" type="AdaptiveImages.AdaptiveImageHandler"  />
+                <add name="AdaptiveImageHandlerPng" path="*.png" verb="GET" type="AdaptiveImages.AdaptiveImageHandler"  />
+              </node>
+
+              <node path="/configuration/appSettings" action="update" key="name" collision="overwrite">
+                <add key="AdaptiveImages.ResolutionBreakpoints" value="1382, 992, 768, 480"/>
+                <add key="AdaptiveImages.CachePath" value="ai-cache"/>
+                <add key="AdaptiveImages.JpegQuality" value="80"/>
+                <add key="AdaptiveImages.WatchCache" value="true"/>
+                <add key="AdaptiveImages.BrowserCache" value="604800"/>
+                <add key="AdaptiveImages.MobileFirst" value="true"/>
+                <add key="AdaptiveImages.CookieName" value="resolution"/>
+              </node>
+            </nodes>
+          </configuration>
+        </install>
+        <uninstall>
+          <configuration>
+            <nodes>
+              <node path="/configuration/system.webServer/handlers/add[@name='AdaptiveImageHandlerGif']" action="remove" />
+              <node path="/configuration/system.webServer/handlers/add[@name='AdaptiveImageHandlerJpg']" action="remove" />
+              <node path="/configuration/system.webServer/handlers/add[@name='FileBasedCachingProvider']" action="remove" />
+            </nodes>
+          </configuration>
+        </uninstall>
+      </config>
+    </component>
+    
+  </components>
+</package></packages>
+</dotnetnuke>
