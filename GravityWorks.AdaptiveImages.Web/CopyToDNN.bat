@@ -1,7 +1,7 @@
 ﻿@ECHO OFF
 REM   xcopy reference:  http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ntcmds.mspx?mfr=true
 
-SET DnnDirectory=C:\Web\MMPGS2\
+SET DnnDirectory=C:\Web\AI-1\
 SET ModuleFolder=GravityWorks-AdaptiveImages
 
 ECHO.

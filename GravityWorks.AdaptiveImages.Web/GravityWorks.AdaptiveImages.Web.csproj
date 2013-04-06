@@ -38,7 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetNuke">
+    <Reference Include="DotNetNuke, Version=7.0.5.130, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\DotNetNuke.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -74,14 +75,13 @@
   <ItemGroup>
     <Content Include="Default.ascx" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="CopyToDNN.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\host-image.png" />
+    <Content Include="lib\DotNetNuke.dll" />
     <Content Include="_GravityWorks-AdaptiveImages.dnn">
       <SubType>Designer</SubType>
     </Content>
@@ -105,7 +105,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>27819</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:3365/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
